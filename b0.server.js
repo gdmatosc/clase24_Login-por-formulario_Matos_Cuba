@@ -100,7 +100,61 @@ app.use(session({
 
 app.use('/api',apiRouter);
 
+app.set('views','./f1.views')
+app.set('view engine','ejs')
+
 //3.3.Envío de datos a URLs
+
+app.get('/login',(req,res)=>{
+    if(req.session.username) return res.redirect('/home')
+    res.sendFile('login.html',{root: __dirname+'/public'})
+})
+
+app.post('/login',(req,res)=>{
+    req.session.username=req.body.username
+    return res.redirect('/home')
+})
+
+app.get('/home',(req,res)=>{
+    console.log(req.session);
+    let username=req.session.username
+    console.log("reqSessionUsername.appGet",username)
+    if(!username) return res.redirect('/login')
+    return res.render('home',{username})
+    ////return res.render('index',{username:req.session.username}) index.name: index.ejs 
+})
+
+app.get('/logout',(req,res)=>{
+    let username=req.session.username
+    //username=req.session.username
+    req.session.destroy()
+    return res.render('logout',{username})
+    //return res.render('logout',{username}) logout.name: logout.ejs 
+
+})
+
+app.get('/chat',(req,res)=>{
+    console.log(req.session);
+    let username=req.session.username
+    console.log("reqSessionUsername.appGet",username)
+    return res.render('chat.ejs',{username})
+})
+
+app.get('/productos',(req,res)=>{
+    console.log(req.session);
+    let username=req.session.username
+    console.log("reqSessionUsername.appGet",username)
+    return res.render('productos.ejs',{username})
+})
+
+/* #endregion */ 
+
+/* #region. 4.Iniciando servidor general*/
+server.listen(PORT,()=>{
+    console.log('Listening on port: '+PORT);
+})
+/* #endregion */ 
+
 /*
 app.get('/',(req,res)=>{
     res.sendFile('index.html',{root: __dirname})
@@ -111,40 +165,6 @@ app.get('/productos',(req,res)=>{
     res.sendFile('productos.html',{root: __dirname+'/public'})
 })
 */
-
-app.get('/login',(req,res)=>{
-    if(req.session.username) return res.redirect('/')
-    res.sendFile('login.html',{root: __dirname+'/public'})
-})
-
-app.post('/login',(req,res)=>{
-    req.session.username=req.body.username
-    return res.redirect('/')
-})
-
-app.get('/',(req,res)=>{
-    console.log(req.session);
-    console.log("reqSessionUsername.appGet",req.session.username)
-    if(!req.session.username) return res.redirect('/login')
-    res.sendFile('index.html',{root: __dirname})
-    //return res.render('index',{username:req.session.username}) index.name: index.ejs 
-})
-
-app.get('/logout',(req,res)=>{
-    //username=req.session.username
-    req.session.destroy()
-    res.sendFile('logout.html',{root: __dirname+'/public'})
-    //return res.render('logout',{username}) logout.name: logout.ejs 
-
-})
-
-/* #endregion */ 
-
-/* #region. 4.Iniciando servidor general*/
-server.listen(PORT,()=>{
-    console.log('Listening on port: '+PORT);
-})
-/* #endregion */ 
 
 /*
 const MongoStore=require('connect-mongo')

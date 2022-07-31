@@ -40,16 +40,6 @@ body {
     text-align: center;
 }
 
-.Section1 span.username {
-    color: lightgreen;
-    text-align: center;
-}
-
-.Section1 h2.login {
-    color: white;
-    text-align: center;
-}
-
 .Section2 {
     background-color: rgb(2, 2, 58);
     padding:0;
@@ -59,11 +49,6 @@ body {
 
 .Section2 h2 {
     color: lightgreen;
-    text-align: center;
-}
-
-.Section2 h2.login {
-    color: white;
     text-align: center;
 }
 
@@ -79,7 +64,17 @@ body {
     text-align: center;
 }
 
+.Section3 span.username {
+    color: lightgreen;
+    text-align: center;
+}
+
 .Section3 h2.login {
+    color: white;
+    text-align: center;
+}
+
+.Section3 h4.login {
     color: white;
     text-align: center;
 }
@@ -153,9 +148,9 @@ span.numParrafo{
       "Logo Logo Logo Logo"
       "Header_nav Header_nav Header_nav Header_nav"
       "Section1 Section1 Section1 Section1"
-      "Section2 Section2 Section2 Section2"
-      "Section3 Section3 Section3 Section3"
-      "Section4 Section4 Section5 Section5"
+      "Section2 Section3 Section3 Section4"
+      "Section2 Section3 Section3 Section4"
+      "Section5 Section5 Section5 Section5"
       "Footer Footer Footer Footer";
   }
   
@@ -224,10 +219,10 @@ span.numParrafo{
 /* #endregion */ 
 
 /* #region. 6.Formularios*/
-.formulario{
+.sector{
     color:white;
     /*margin-left: 35%;*/
-    text-align: center;
+    /*text-align: right;*/
     margin:2em;
     border-radius: 5px;
     background-color: #3c238e;
@@ -252,12 +247,20 @@ span.numParrafo{
     margin:4em;
     text-align: center;
 }
-
-.containervirtualForm{
+.flexContainerVirtualForm{
     display:flex;
-    flex-flow: row wrap;
-    column-gap: 1em;
-    /*justify-content: space-between;*/
+    padding:0.5em 10em;
+    flex-direction: column;
+}
+.flexItemChatVirtualForm{
+    text-align: right;
+}
+
+.flexItemProductosVirtualForm{
+    text-align: right;
+}
+.flexItemLogoutVirtualForm{
+    align-self: center;
 }
 
 .containerBotones{
@@ -385,7 +388,7 @@ span.numParrafo{
 /* #region. 7.Botones*/
 .btnHome {
     /*background-color: rgb(7, 150, 105);*/
-    background-color:darkgreen;
+    background-color:darkblue;
     color: white;
     align-items: center;
     text-align: center;
@@ -405,10 +408,28 @@ span.numParrafo{
     text-align: center;
     text-decoration: none;
     /*padding: 15px 32px;*/
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 16px;
     margin: 4px 2px;
+    border: 0em;
     cursor: pointer;
+    border-radius: 0.4em;
+}
+
+
+.btnLogout {
+    /*background-color: rgb(7, 150, 105);*/
+    background-color:rgb(169, 24, 24);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /*padding: 15px 32px;*/
+    padding: 12px 50px;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: 0em;
+    cursor: pointer;
+    border-radius: 0.4em;
 }
 
 .btnLimpiarBD {
@@ -499,3 +520,4 @@ span.numParrafo{
     }
 }
 /* #endregion */
+

@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/favicon_computer_now_32x32.png">
-    <link rel="stylesheet" href="/css/estiloChatAdv.css">
+    <link rel="stylesheet" href="./css/estiloChat.css">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Chat avanzado</title>
+    <title>Chat</title>
 </head>
 <body>
   
@@ -22,16 +22,16 @@
     <!--2.Menú de módulos--> 
     <div class="Header_nav"> 
         <ul class="mainNav">
-            <li><a href="/chatBasic.html">Chat básico</a></li>
-            <li><a href="">Chat avanzado</a></li>
-            <li><a href="/api/productosBasico">Tabla básica de productos</a></li>
-            <li><a href="./productosAdv.html">Tabla avanzada de productos</a></li>
+            <li><a href="">Chat</a></li>
+            <li><a href="/productos">Productos</a></li>
         </ul>
     </div>
     <!--3.Sección1.Título y subtítulo general-->
     <div class="Section1">	
         <h2 class=tituloGeneral>Coderhouse: Temas acumulados</h2>
-        <h4 class=subTituloGeneral>Express, router, websockets, BD NoSQL</h4>
+        <div>
+            <h2 class="login">Sesión de <span class="username"><%=username%></span>  en Chat</h2>
+         </div>
         <div>
             
         </div>
@@ -51,26 +51,6 @@
     </div>
     <div class="Section3">	
         <fieldset class="legendas">
-            <legend><span class="numParrafo">2.Aplicación avanzada con sockets</span></legend>
-                    <form class="formularioChat" id="form2do">
-                        <br>
-                        <div>
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" />
-                        </div> 
-                        <br><br>
-                        <div>
-                            <label for="textoIngresado">Mensaje:</label>
-                            <input type="text" name="textoIngresado" placeholder="">
-                        </div> 
-                        <br>
-                        <button class="btnEnviar" type="submit">Enviar</button>
-                        <br><br>
-                    </form>
-        </fieldset>
-    </div>
-    <div class="Section4">	
-        <fieldset class="legendas">
             <legend><span class="numParrafo">1.Aplicación avanzada con sockets</span></legend>
                     <br>
                     <div id="messages">
@@ -83,6 +63,9 @@
                     </div>
                     <br>
         </fieldset>
+    </div>
+    <div class="Section4">	
+        
     </div>
    <!--8.Footer-->
    <div class="Footer">

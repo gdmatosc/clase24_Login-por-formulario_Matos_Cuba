@@ -32,15 +32,15 @@ const messagesP=[
 /* #region. 2.Get.chat*/
 
 router.get('/comentarios/file', async (req, res) => {
-    await contenedorFileChatBasic.init();
-    let contenedorVar=await contenedorFileChatBasic.getAll();
+    await contenedorFileChat.init();
+    let contenedorVar=await contenedorFileChat.getAll();
     console.log("contenedorVar.comentariosFile.RouterGet",contenedorVar)
     res.json(contenedorVar)
     console.log("Enviado.comentariosFile.RouterGet")
 });
 
 router.get('/comentarios/mongoDB', async (req, res) => {
-    let contenedorVar=await contenedorMongoChatBasic.getAll();
+    let contenedorVar=await contenedorMongoChat.getAll();
     console.log("contenedorVar.comentariosMongoDB.routerGet",contenedorVar)
     res.json(contenedorVar)
     console.log("Enviado.comentariosMongoDB.routerGet")
@@ -51,21 +51,21 @@ router.get('/comentarios/mongoDB', async (req, res) => {
 /* #region. 3.Post.chat*/
 
 router.post('/comentarios/file',async (req,res)=>{
-    const {nombre,edad,correo,textoIngresado}=req.body;
-    console.log("username-text.comentariosFile.routerPost",{nombre,edad,correo,textoIngresado})
-    await contenedorFileChatBasic.save({nombre,edad,correo,textoIngresado});
+    const {nombre,edad,correo,fecha,thumbnail,textoIngresado}=req.body;
+    console.log("username-text.comentariosFile.routerPost",{nombre,edad,correo,fecha,thumbnail,textoIngresado})
+    await contenedorFileChat.save({nombre,edad,correo,fecha,thumbnail,textoIngresado});
     console.log("Guardado.comentariosFile.routerPost")
 })
 router.post('/comentarios/mongoDB',async (req,res)=>{
     const {username,text}=req.body;
     console.log("username-text.comentariosMongoDB.routerPost",{username,text})
-    await contenedorMongoChatBasic.save({username,text});
+    await contenedorMongoChat.save({username,text});
     console.log("Guardado.comentariosMongoDB.routerPost")
 })
 /* #endregion */
 
 /* #region. 3.Get.productos*/
-
+/*
 router.get('/objetos/mongoDB', async (req, res) => {
     let contenedorMongoProductsNew=await contenedorMongoProducts.getAll();
     contenedorVar=contenedorMongoProductsNew;
@@ -73,7 +73,7 @@ router.get('/objetos/mongoDB', async (req, res) => {
     res.json(contenedorMongoProductsNew)
     console.log("Enviado.objetosMongoDB.RouterGet")
 });
-
+*/
 router.get('/objetos/file', async (req, res) => {
     await contenedorFileProducts.init();
     let contenedorVar=await contenedorFileProducts.getAll();
@@ -87,6 +87,7 @@ router.get('/objetos/file', async (req, res) => {
 /* #endregion */
 
 /* #region. 4.Post.productos*/
+/*
 router.post('/objetos/mongoDB',async (req,res)=>{
     let {title,thumbnail,price}=req.body;
     console.log("req.bodyPost",req.body)
@@ -98,7 +99,7 @@ router.post('/objetos/mongoDB',async (req,res)=>{
     console.log("Guardado.objetosMongoDB.routerPost")
     res.send("Guardado")
 })
-
+*/
 router.post('/objetos/file',async (req,res)=>{
     let {title,thumbnail,price}=req.body;
     console.log("req.bodyPost.objetosFile.RouterPost",req.body)
@@ -138,7 +139,7 @@ router.delete('/objetos/file/:id',async(req,res)=>{
         throw error
     }
 })
-
+/*
 router.delete('/objetos/mongoDB/:id',async(req,res)=>{
     try{
         const {id}=req.params;
@@ -149,24 +150,24 @@ router.delete('/objetos/mongoDB/:id',async(req,res)=>{
         throw error
     }
 })
-
+*/
 router.delete('/objetos/file',async(req,res)=>{
     res.json(await contenedorFileProducts.deleteAll())
     console.log("borradoTotal.objetosFile.routerDelete")
 })
-
+/*
 router.delete('/objetos/mongoDB',async(req,res)=>{
     res.json(await contenedorMongoProducts.deleteAll())
     console.log("borradoTotal.objetosmongoDB.routerDelete")
 })
-
+*/
 router.delete('/comentarios/file',async(req,res)=>{
-    res.json(await contenedorFileChatBasic.deleteAll())
+    res.json(await contenedorFileChat.deleteAll())
     console.log("borradoTotal.comentariosFile.routerDelete")
 })
 
 router.delete('/comentarios/mongoDB',async(req,res)=>{
-    res.json(await contenedorMongoChatBasic.deleteAll())
+    res.json(await contenedorMongoChat.deleteAll())
     console.log("borradoTotal.comentariosMongoDB.routerDelete")
 })
 

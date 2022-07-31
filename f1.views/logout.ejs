@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/favicon_computer_now_32x32.png">
-    <link rel="stylesheet" href="./css/estiloIndex.css">
-    <title>Index</title>
+    <link rel="stylesheet" href="./css/estiloLogout.css">
+    <title>Logout</title>
 </head>
 <body>
+    
+
     <div class="gridContainer">
         <!--1.Elementos de cabecera a la altura del Logo-->
          <div class="Logo">
@@ -26,7 +28,7 @@
          </div>
          <!--3.Sección1.Título y subtítulo general-->
          <div class="Section1">	
-             <h2 class=tituloGeneral>Coderhouse: Clase 24. Log-in por formulario</h2>
+             
              
              <div>
                  
@@ -35,20 +37,21 @@
          </div>
          <!--4.Sección2: Objetivos-->
          <div class="Section2">	
-            <div class="parallax">
-                <h4>Bienvenido a nuestra empresa</h4>
-                <button class="btnHome" onclick='window.location.href = "/home"' type="button">Home</button>
-                <!-- <form action='/home' method='get'>
-                    <input class="btnHome" type='submit' value='Home'/>
-                </form> -->
-            </div>
+            
+            
             
          </div>
          <!--5.Sección3: DataFlow FrontEnd-->
          <div class="Section3">	
-             <div>
-                 
-             </div>
+            <div class="formulario">
+                <br>
+                <h2 class="login">Bye <span class="username"><%=username%></span> </h2>
+                
+                <button class="btnToHome" onclick='window.location.href = "/"' type="button">Index</button>
+                <br><br>
+                <button class="btnEnviar" onclick='window.location.href = "/login"' type="button">Log in</button>
+                <br><br>
+            </div>
          </div>
          <!--6.Sección4: DataFlow BackEnd-->
          <div class="Section4">	
@@ -89,5 +92,4 @@
  
      </div>
 </body>
-<script type="text/javascript" src="../js/JSindex.js"></script>
 </html>

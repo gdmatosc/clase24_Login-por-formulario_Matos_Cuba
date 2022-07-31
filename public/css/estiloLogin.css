@@ -40,16 +40,6 @@ body {
     text-align: center;
 }
 
-.Section1 span.username {
-    color: lightgreen;
-    text-align: center;
-}
-
-.Section1 h2.login {
-    color: white;
-    text-align: center;
-}
-
 .Section2 {
     background-color: rgb(2, 2, 58);
     padding:0;
@@ -59,11 +49,6 @@ body {
 
 .Section2 h2 {
     color: lightgreen;
-    text-align: center;
-}
-
-.Section2 h2.login {
-    color: white;
     text-align: center;
 }
 
@@ -153,9 +138,9 @@ span.numParrafo{
       "Logo Logo Logo Logo"
       "Header_nav Header_nav Header_nav Header_nav"
       "Section1 Section1 Section1 Section1"
-      "Section2 Section2 Section2 Section2"
-      "Section3 Section3 Section3 Section3"
-      "Section4 Section4 Section5 Section5"
+      "Section2 Section3 Section3 Section4"
+      "Section2 Section3 Section3 Section4"
+      "Section5 Section5 Section5 Section5"
       "Footer Footer Footer Footer";
   }
   
@@ -385,7 +370,7 @@ span.numParrafo{
 /* #region. 7.Botones*/
 .btnHome {
     /*background-color: rgb(7, 150, 105);*/
-    background-color:darkgreen;
+    background-color:darkblue;
     color: white;
     align-items: center;
     text-align: center;
@@ -405,10 +390,12 @@ span.numParrafo{
     text-align: center;
     text-decoration: none;
     /*padding: 15px 32px;*/
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 16px;
     margin: 4px 2px;
+    border: 0em;
     cursor: pointer;
+    border-radius: 0.4em;
 }
 
 .btnLimpiarBD {
@@ -499,3 +486,4 @@ span.numParrafo{
     }
 }
 /* #endregion */
+

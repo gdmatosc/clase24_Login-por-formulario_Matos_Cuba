@@ -64,6 +64,16 @@ body {
     text-align: center;
 }
 
+.Section3 span.username {
+    color: lightgreen;
+    text-align: center;
+}
+
+.Section3 h2.login {
+    color: white;
+    text-align: center;
+}
+
 .Section4 {
     background-color: rgb(2, 2, 58);
     padding:0;
@@ -91,16 +101,13 @@ body {
 
 /* #region. 3.Formato general de texto, legendas y listas*/
 ul.contenidoLista{
-    
     list-style: none; 
     margin-left:1em;
     padding:0;
-    
 }
 
 li.subContenidoLista{
     margin-left:0;
-    
 }
 
 p.parrafo{
@@ -128,18 +135,18 @@ span.numParrafo{
 /* #region. 4.Definición de Grid*/
 .gridContainer {  
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows:  repeat(7, auto);
     gap: 0px 0px;
     /*grid-auto-flow: row;*/
     grid-template-areas:
-      "Logo Logo Logo Logo Logo Logo"
-      "Header_nav Header_nav Header_nav Header_nav Header_nav Header_nav"
-      "Section1 Section1 Section1 Section1 Section1 Section1"
-      "Section2 Section2 Section3 Section3 Section4 Section4"
-      "Section2 Section2 Section3 Section3 Section4 Section4"
-      "Section5 Section5 Section5 Section5 Section5 Section5"
-      "Footer Footer Footer Footer Footer Footer";
+      "Logo Logo Logo Logo"
+      "Header_nav Header_nav Header_nav Header_nav"
+      "Section1 Section1 Section1 Section1"
+      "Section2 Section3 Section3 Section4"
+      "Section2 Section3 Section3 Section4"
+      "Section5 Section5 Section5 Section5"
+      "Footer Footer Footer Footer";
   }
   
   .Logo { grid-area: Logo; }
@@ -175,14 +182,11 @@ span.numParrafo{
     height: 100%;
     align-items:center;
     justify-content:center;
-    
 }
-
 
 /* Menú con submenú */
 .Header_nav {
     background-color: rgb(4, 4, 74);
- 
 }
 
 .Header_nav ul.mainNav {
@@ -191,7 +195,6 @@ span.numParrafo{
     padding-left: 0px;
     text-align: center;
     margin:0;
-    
 }
 
 .Header_nav ul.mainNav li {
@@ -216,6 +219,8 @@ span.numParrafo{
     /*margin-left: 35%;*/
     text-align: center;
     margin:2em;
+    border-radius: 5px;
+    background-color: #3c238e;
 }
 
 .formularioChat{
@@ -251,10 +256,153 @@ span.numParrafo{
     column-gap: 2em;
     /*justify-content: space-between;*/
 }
+/* #endregion */ 
 
+/* #region. 7.Flexbox de imágenes*/
+
+.team-container
+{
+    width:100%;
+    height: auto;
+ 
+}
+.text
+{
+    color:green;
+    font-size: 25px;
+    margin-top: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+ 
+}
+.row
+{
+    margin-bottom: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    justify-content: space-evenly;
+}
+
+.profile-card
+{
+    background-color: #ffffff;
+    width: 270px;
+    height: 300px;
+    margin: 20px 10px 10px 10px;
+}
+
+.profile-image img{
+    width: 130px;
+    height: 130px;
+    /*border-radius: 50px;*/
+}
+.profile-image
+{
+    text-align: center;
+}
+
+.profile-content
+{
+    padding:15px;
+}
+
+.desc
+{
+    text-align: center;
+}
+.desc h2
+{
+    color: green;
+    font-size: 20px;
+}
+.desc p{
+    font-size: 13px;
+    line-height: 1.3em;
+    margin-top: -10px;
+    color: #000000;
+     
+}
+.btn-div
+{
+    text-align: center;
+}
+.btn
+{
+    background-color: rgb(2, 2, 58);
+    color: #ffffff;
+    width: 150px;
+    cursor: pointer;
+    height: 38px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 3px 3px 3px 3px #e6e6e6;
+    border-radius: 3px;
+    outline:none;
+    border:none;
+    text-transform: uppercase;
+}
+/* #endregion */ 
+
+/* #region. 8.Parallax*/
+.parallax {
+    background-image: url("../img/perifericos_comunicaciones_electricos.jpg");
+    height: 80vh;
+    width: 100%;
+    
+    text-align: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 3vw;
+    padding-top: 5vw;
+    margin: 0; }
+    .parallax h4 {
+      font-size: 3rem;
+      /*text-align: left;*/
+      color: white; }
+    .parallax p {
+      font-size: 2rem;
+      /*text-align: left;*/
+      color: white; }
 /* #endregion */ 
 
 /* #region. 7.Botones*/
+.btnHome {
+    /*background-color: rgb(7, 150, 105);*/
+    background-color:darkblue;
+    color: white;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    /*padding: 15px 32px;*/
+    padding: 15px 25px;
+    font-size: 16px;
+    border: 0em;
+    cursor: pointer;
+    border-radius: 0.4em;
+}
+
+.btnToHome {
+    /*background-color: rgb(7, 150, 105);*/
+    background-color:darkgreen;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    /*padding: 15px 32px;*/
+    padding: 12px 22px;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: 0em;
+    cursor: pointer;
+    border-radius: 0.4em;
+}
+
 .btnEnviar {
     /*background-color: rgb(7, 150, 105);*/
     background-color:green;
@@ -262,10 +410,12 @@ span.numParrafo{
     text-align: center;
     text-decoration: none;
     /*padding: 15px 32px;*/
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 16px;
     margin: 4px 2px;
+    border: 0em;
     cursor: pointer;
+    border-radius: 0.4em;
 }
 
 .btnLimpiarBD {
@@ -280,6 +430,7 @@ span.numParrafo{
     margin: 4px 2px;
     cursor: pointer;
 }
+
 /* #endregion */ 
 
 /* #region. 8.Footer*/
@@ -355,3 +506,4 @@ span.numParrafo{
     }
 }
 /* #endregion */
+

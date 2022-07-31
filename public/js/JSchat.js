@@ -6,34 +6,37 @@
 
 const socket=io.connect();
 //const element1=document.getElementById('form1ro')
-//const element2=document.getElementById('form2do')
+//const element2=document.getElementById('form2do') <img src="./img/icon_48px_man1.png" style='width:40px;'>
 console.log('socket ui')
 let usuarioElegidoID=1
 let textoIn=''
 const usuariosBackup=[
-    {id:1,nombre:"Dante 0",correo:"d0@company.com", edad:25},
-    {id:2,nombre:"Dante Y",correo:"dy@company.com", edad:27},
-    {id:3,nombre:"Dante R",correo:"dr@company.com", edad:29}
+    {id:1,nombre:"Jose",correo:"jose.r@company.com", edad:25,thumbnail:"./img/icon_48px_man1.png"},
+    {id:2,nombre:"Ricardo",correo:"ricardo.v@company.com", edad:27,thumbnail:"./img/icon_48px_man2.png"},
+    {id:3,nombre:"Luis",correo:"luis.r@company.com", edad:29,thumbnail:"./img/icon_48px_man3.png"}
 ]
 /* #endregion */ 
 
 /* #region. 2.Imprimir mensajes de socket en los div id:messages, id:messages1*/
 //Recepción de datos del socket
-socket.on('messages',(messages)=>{
-    console.log('mensajes.socket.cliente.recibido.JS',messages);
-    render(messages);
-}) 
+imprimirMensajes()
+function imprimirMensajes(){
+    socket.on('messages',(messages)=>{
+        console.log('mensajes.socket.cliente.recibido.JS',messages);
+        render(messages);
+    }) 
+}
+
 
 //Función render
 const render=(data)=>{
     const html=data.map((element,index)=>{
         return(`
-            <div>
-                <strong>${element.nombre}</strong> 
-                <strong>${element.correo}</strong>
-                <strong>${element.edad}</strong>: 
-                <em>${element.textoIngresado} </em>
-                
+            <div class="contenedorChatRespuesta">
+                <strong >${element.correo}</strong>
+                <strong >[${element.fecha}]</strong>: 
+                <em >${element.textoIngresado} </em>
+                <img src=${element.thumbnail} style='width:40px;'>
             </div>
         `)
     }).join('');
@@ -123,6 +126,12 @@ function valorSelectedad(usuarioElegidoID){
     return (edadSeleccionado)
 }
 
+function valorSelectThumbnail(){
+    let thumbailSeleccionado=usuariosBackup.find(function(x) { return x.id == usuarioElegidoID })["thumbnail"]
+    console.log("valorSelect.thumbnailSeleccionado",thumbailSeleccionado)
+    return (thumbailSeleccionado)
+}
+
 function valorSelectCorreo(usuarioElegidoID){
     //usuarioElegidoID=document.getElementById("userSelect").value;
     let correoSeleccionado=usuariosBackup.find(function(x) { return x.id == usuarioElegidoID })["correo"]
@@ -151,6 +160,7 @@ function loadNombreSelect(){
     let nombreSeleccionado=usuariosBackup.find(function(x) { return x.id == usuarioElegidoID })["nombre"]
     console.log("loadMensajeSelect.nombreSeleccionado",nombreSeleccionado)
     imprimirInputs()
+    valorSelectThumbnail()
     imprimirBotonEnvio()
     inputTextListener()
     console.log("fin.loadNombreSelect")
@@ -173,6 +183,9 @@ function groupInputsEnviarDatos(dato1,dato2,dato3,dato4){
     usuarioSend.nombre=dato1
     usuarioSend.edad=dato2
     usuarioSend.correo=dato3
+    let dateString=new Date().toLocaleString()
+    usuarioSend.fecha=dateString
+    usuarioSend.thumbnail=valorSelectThumbnail()
     usuarioSend.textoIngresado=dato4
     usuarioSendParsed=JSON.stringify(usuarioSend)
     
@@ -187,6 +200,7 @@ function groupInputsEnviarDatos(dato1,dato2,dato3,dato4){
     socket.emit('new-message',usuarioSendParsed);
 }
 /* Formulario 2do */
+/*
 form2Listener()
 function form2Listener(){
     const form2 = document.getElementById('form2do');
@@ -197,18 +211,18 @@ function form2Listener(){
         let object = {};
         payload.forEach((value, key) => object[key] = value);
         let newPayload = JSON.stringify(object);
-        /*
+        
         fetch('/api/comentarios', {method: 'POST',headers:{'content-type':'application/json'},body: newPayload})
          .then(res => res.json())
          .then(data => {
             console.log("dataPost",data)
             console.log("newPayload",newPayload)
         })
-        */
+        
         socket.emit('new-message',newPayload);
         console.log("SocketnewPayload1",newPayload)
 })
-}
+}*/
 
 function eliminarContenidoBD(){
     fetch(`/api/comentarios/file`,{method: 'DELETE',headers:{'content-type':'application/json'}})

@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/favicon_computer_now_32x32.png">
-    <link rel="stylesheet" href="./css/estiloIndex.css">
-    <title>Index</title>
+    <link rel="stylesheet" href="./css/estiloHome.css">
+    <title>Home</title>
 </head>
 <body>
+    
     <div class="gridContainer">
         <!--1.Elementos de cabecera a la altura del Logo-->
          <div class="Logo">
@@ -19,14 +20,14 @@
          <!--2.Menú de módulos--> 
          <div class="Header_nav"> 
              <ul class="mainNav">
-                 <li><a href="./chatBasic.html">Chat</a></li>
-                 <li><a href="/api/chatAvanzado">Productos</a></li>
+                 <li><a href="/chat">Chat</a></li>
+                 <li><a href="/productos">Productos</a></li>
                 
              </ul>
          </div>
          <!--3.Sección1.Título y subtítulo general-->
          <div class="Section1">	
-             <h2 class=tituloGeneral>Coderhouse: Clase 24. Log-in por formulario</h2>
+             
              
              <div>
                  
@@ -35,20 +36,34 @@
          </div>
          <!--4.Sección2: Objetivos-->
          <div class="Section2">	
-            <div class="parallax">
-                <h4>Bienvenido a nuestra empresa</h4>
-                <button class="btnHome" onclick='window.location.href = "/home"' type="button">Home</button>
-                <!-- <form action='/home' method='get'>
-                    <input class="btnHome" type='submit' value='Home'/>
-                </form> -->
-            </div>
+            
             
          </div>
          <!--5.Sección3: DataFlow FrontEnd-->
          <div class="Section3">	
-             <div>
-                 
-             </div>
+            <div class="sector">
+                <br>
+                <h2 class="login">Bienvenido <span class="username"><%=username%></span>  al Home</h2>
+                <h4 class="login">Eliga el servicio que usará</h4>
+                <div class="flexContainerVirtualForm">
+                    <div class="flexItemChatVirtualForm">
+                        <label>Chat: </label>
+                        <button class="btnEnviar" onclick='window.location.href = "/chat"' type="button">Acceder</button>
+                    </div>
+                    
+                    <div class="flexItemProductosVirtualForm">
+                        <label>Productos: </label>
+                        <button class="btnEnviar" onclick='window.location.href = "/productos"' type="button">Acceder</button>
+                    </div>
+                    <br><br>
+                    <div class="flexItemLogoutVirtualForm">
+                        <button class="btnLogout" onclick='window.location.href = "/logout"' type="button">Salir</button>
+                    </div>
+                </div>
+                <br>
+                
+                
+            </div>
          </div>
          <!--6.Sección4: DataFlow BackEnd-->
          <div class="Section4">	
@@ -89,5 +104,5 @@
  
      </div>
 </body>
-<script type="text/javascript" src="../js/JSindex.js"></script>
+<!-- <script type="text/javascript" src="../js/JSindex.js"></script> -->
 </html>
